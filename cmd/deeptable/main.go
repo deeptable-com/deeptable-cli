@@ -10,7 +10,7 @@ import (
 	"os"
 	"slices"
 
-	"github.com/stainless-sdks/deeptable-cli/pkg/cmd"
+	"github.com/deeptable-com/deeptable-cli/pkg/cmd"
 	"github.com/stainless-sdks/deeptable-go"
 	"github.com/tidwall/gjson"
 	"github.com/urfave/cli/v3"

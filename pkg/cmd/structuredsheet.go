@@ -7,8 +7,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/stainless-sdks/deeptable-cli/internal/apiquery"
-	"github.com/stainless-sdks/deeptable-cli/internal/requestflag"
+	"github.com/deeptable-com/deeptable-cli/internal/apiquery"
+	"github.com/deeptable-com/deeptable-cli/internal/requestflag"
 	"github.com/stainless-sdks/deeptable-go"
 	"github.com/stainless-sdks/deeptable-go/option"
 	"github.com/tidwall/gjson"

@@ -12,8 +12,8 @@ import (
 	"slices"
 	"strings"
 
-	"github.com/stainless-sdks/deeptable-cli/internal/autocomplete"
-	"github.com/stainless-sdks/deeptable-cli/internal/requestflag"
+	"github.com/deeptable-com/deeptable-cli/internal/autocomplete"
+	"github.com/deeptable-com/deeptable-cli/internal/requestflag"
 	docs "github.com/urfave/cli-docs/v3"
 	"github.com/urfave/cli/v3"
 )
