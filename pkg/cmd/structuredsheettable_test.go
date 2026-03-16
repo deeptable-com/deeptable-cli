@@ -5,7 +5,7 @@ package cmd
 import (
 	"testing"
 
-	"github.com/stainless-sdks/deeptable-cli/internal/mocktest"
+	"github.com/deeptable-com/deeptable-cli/internal/mocktest"
 )
 
 func TestStructuredSheetsTablesRetrieve(t *testing.T) {
