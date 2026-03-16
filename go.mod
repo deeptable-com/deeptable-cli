@@ -1,4 +1,4 @@
-module github.com/stainless-sdks/deeptable-cli
+module github.com/deeptable-com/deeptable-cli
 
 go 1.25
 
@@ -10,7 +10,7 @@ require (
 	github.com/goccy/go-yaml v1.18.0
 	github.com/itchyny/json2yaml v0.1.4
 	github.com/muesli/reflow v0.3.0
-	github.com/stainless-sdks/deeptable-go v0.0.0-20260316135044-7d357bb7c7ee
+	github.com/stainless-sdks/deeptable-go v0.0.0-20260316135637-243b84f7b86e
 	github.com/stretchr/testify v1.10.0
 	github.com/tidwall/gjson v1.18.0
 	github.com/tidwall/pretty v1.2.1

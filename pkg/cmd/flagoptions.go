@@ -14,10 +14,10 @@ import (
 	"strings"
 	"unicode/utf8"
 
-	"github.com/stainless-sdks/deeptable-cli/internal/apiform"
-	"github.com/stainless-sdks/deeptable-cli/internal/apiquery"
-	"github.com/stainless-sdks/deeptable-cli/internal/debugmiddleware"
-	"github.com/stainless-sdks/deeptable-cli/internal/requestflag"
+	"github.com/deeptable-com/deeptable-cli/internal/apiform"
+	"github.com/deeptable-com/deeptable-cli/internal/apiquery"
+	"github.com/deeptable-com/deeptable-cli/internal/debugmiddleware"
+	"github.com/deeptable-com/deeptable-cli/internal/requestflag"
 	"github.com/stainless-sdks/deeptable-go/option"
 
 	"github.com/goccy/go-yaml"
