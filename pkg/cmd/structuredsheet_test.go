@@ -12,8 +12,9 @@ func TestStructuredSheetsCreate(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
-			t, "structured-sheets", "create",
+			t,
 			"--api-key", "string",
+			"structured-sheets", "create",
 			"--file-id", "file_01h45ytscbebyvny4gc8cr8ma2",
 			"--sheet-name", "[Sheet1, Financials]",
 		)
@@ -27,8 +28,9 @@ func TestStructuredSheetsCreate(t *testing.T) {
 			"  - Sheet1\n" +
 			"  - Financials\n")
 		mocktest.TestRunMockTestWithPipeAndFlags(
-			t, pipeData, "structured-sheets", "create",
+			t, pipeData,
 			"--api-key", "string",
+			"structured-sheets", "create",
 		)
 	})
 }
@@ -37,8 +39,9 @@ func TestStructuredSheetsRetrieve(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
-			t, "structured-sheets", "retrieve",
+			t,
 			"--api-key", "string",
+			"structured-sheets", "retrieve",
 			"--structured-sheet-id", "ss_01kfxgjd94fn9stqm42nejb627",
 		)
 	})
@@ -48,8 +51,9 @@ func TestStructuredSheetsList(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
-			t, "structured-sheets", "list",
+			t,
 			"--api-key", "string",
+			"structured-sheets", "list",
 			"--max-items", "10",
 			"--after", "ss_01kfxgjd94fn9stqm42nejb627",
 			"--limit", "20",
@@ -61,8 +65,9 @@ func TestStructuredSheetsDelete(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
-			t, "structured-sheets", "delete",
+			t,
 			"--api-key", "string",
+			"structured-sheets", "delete",
 			"--structured-sheet-id", "ss_01kfxgjd94fn9stqm42nejb627",
 		)
 	})
@@ -72,8 +77,9 @@ func TestStructuredSheetsCancel(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
-			t, "structured-sheets", "cancel",
+			t,
 			"--api-key", "string",
+			"structured-sheets", "cancel",
 			"--structured-sheet-id", "ss_01kfxgjd94fn9stqm42nejb627",
 		)
 	})
@@ -83,8 +89,9 @@ func TestStructuredSheetsDownload(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	t.Run("regular flags", func(t *testing.T) {
 		mocktest.TestRunMockTestWithFlags(
-			t, "structured-sheets", "download",
+			t,
 			"--api-key", "string",
+			"structured-sheets", "download",
 			"--structured-sheet-id", "ss_01kfxgjd94fn9stqm42nejb627",
 			"--format", "sqlite",
 			"--output", "/dev/null",
