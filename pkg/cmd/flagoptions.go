@@ -18,7 +18,7 @@ import (
 	"github.com/deeptable-com/deeptable-cli/internal/apiquery"
 	"github.com/deeptable-com/deeptable-cli/internal/debugmiddleware"
 	"github.com/deeptable-com/deeptable-cli/internal/requestflag"
-	"github.com/stainless-sdks/deeptable-go/option"
+	"github.com/deeptable-com/deeptable-go/option"
 
 	"github.com/goccy/go-yaml"
 	"github.com/urfave/cli/v3"

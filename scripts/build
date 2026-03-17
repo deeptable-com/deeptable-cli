@@ -5,7 +5,7 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 
 # Mark the necessary Go modules as private to avoid Go's proxy
-export GOPRIVATE="${GOPRIVATE:+$GOPRIVATE,}github.com/stainless-sdks/deeptable-go"
+export GOPRIVATE="${GOPRIVATE:+$GOPRIVATE,}github.com/deeptable-com/deeptable-go,github.com/stainless-sdks/deeptable-go"
 
 echo "==> Building deeptable"
 go build ./cmd/deeptable

@@ -15,7 +15,7 @@ on:
       - 'stl-preview-base/**'
 
 env:
-  GOPRIVATE: github.com/stainless-sdks/deeptable-go
+  GOPRIVATE: github.com/deeptable-com/deeptable-go,github.com/stainless-sdks/deeptable-go
 
 jobs:
   lint:

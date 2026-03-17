@@ -17,7 +17,7 @@ import (
 	"syscall"
 
 	"github.com/deeptable-com/deeptable-cli/internal/jsonview"
-	"github.com/stainless-sdks/deeptable-go/option"
+	"github.com/deeptable-com/deeptable-go/option"
 
 	"github.com/charmbracelet/x/term"
 	"github.com/itchyny/json2yaml"
