@@ -9,8 +9,8 @@ import (
 
 	"github.com/deeptable-com/deeptable-cli/internal/apiquery"
 	"github.com/deeptable-com/deeptable-cli/internal/requestflag"
-	"github.com/stainless-sdks/deeptable-go"
-	"github.com/stainless-sdks/deeptable-go/option"
+	"github.com/deeptable-com/deeptable-go"
+	"github.com/deeptable-com/deeptable-go/option"
 	"github.com/tidwall/gjson"
 	"github.com/urfave/cli/v3"
 )
