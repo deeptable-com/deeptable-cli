@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.1.0-beta.2 (2026-03-19)
+
+Full Changelog: [v0.1.0-beta.1...v0.1.0-beta.2](https://github.com/deeptable-com/deeptable-cli/compare/v0.1.0-beta.1...v0.1.0-beta.2)
+
+### Bug Fixes
+
+* avoid reading from stdin unless request body is form encoded or json ([e168622](https://github.com/deeptable-com/deeptable-cli/commit/e168622e79411b925ab38e911560a5d459e7b922))
+* improve linking behavior when developing on a branch not in the Go SDK ([9980d7a](https://github.com/deeptable-com/deeptable-cli/commit/9980d7a4948747695738d43a6e0e64dc7ea6d914))
+
+
+### Chores
+
+* ignore macOS .DS_Store ([d17f356](https://github.com/deeptable-com/deeptable-cli/commit/d17f356671441e706be01cc8b039dface0bccf09))
+
 ## 0.1.0-beta.1 (2026-03-18)
 
 Full Changelog: [v0.0.1...v0.1.0-beta.1](https://github.com/deeptable-com/deeptable-cli/compare/v0.0.1...v0.1.0-beta.1)
