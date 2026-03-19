@@ -2,3 +2,6 @@
 dist/
 /deeptable
 *.exe
+
+# custom local ignores
+.DS_Store
