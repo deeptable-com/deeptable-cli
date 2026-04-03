@@ -96,10 +96,11 @@ var filesUpload = cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:     "file",
-			Usage:    "The spreadsheet file to upload",
-			Required: true,
-			BodyPath: "file",
+			Name:      "file",
+			Usage:     "The spreadsheet file to upload",
+			Required:  true,
+			BodyPath:  "file",
+			FileInput: true,
 		},
 	},
 	Action:          handleFilesUpload,
