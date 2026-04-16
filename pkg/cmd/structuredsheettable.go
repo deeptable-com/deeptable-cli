@@ -138,7 +138,12 @@ func handleStructuredSheetsTablesRetrieve(ctx context.Context, cmd *cli.Command)
 	format := cmd.Root().String("format")
 	explicitFormat := cmd.Root().IsSet("format")
 	transform := cmd.Root().String("transform")
-	return ShowJSON(os.Stdout, os.Stderr, "structured-sheets:tables retrieve", obj, format, explicitFormat, transform)
+	return ShowJSON(obj, ShowJSONOpts{
+		ExplicitFormat: explicitFormat,
+		Format:         format,
+		Title:          "structured-sheets:tables retrieve",
+		Transform:      transform,
+	})
 }
 
 func handleStructuredSheetsTablesList(ctx context.Context, cmd *cli.Command) error {
@@ -181,7 +186,12 @@ func handleStructuredSheetsTablesList(ctx context.Context, cmd *cli.Command) err
 			return err
 		}
 		obj := gjson.ParseBytes(res)
-		return ShowJSON(os.Stdout, os.Stderr, "structured-sheets:tables list", obj, format, explicitFormat, transform)
+		return ShowJSON(obj, ShowJSONOpts{
+			ExplicitFormat: explicitFormat,
+			Format:         format,
+			Title:          "structured-sheets:tables list",
+			Transform:      transform,
+		})
 	} else {
 		iter := client.StructuredSheets.Tables.ListAutoPaging(
 			ctx,
@@ -193,7 +203,12 @@ func handleStructuredSheetsTablesList(ctx context.Context, cmd *cli.Command) err
 		if cmd.IsSet("max-items") {
 			maxItems = cmd.Value("max-items").(int64)
 		}
-		return ShowJSONIterator(os.Stdout, os.Stderr, "structured-sheets:tables list", iter, format, explicitFormat, transform, maxItems)
+		return ShowJSONIterator(iter, maxItems, ShowJSONOpts{
+			ExplicitFormat: explicitFormat,
+			Format:         format,
+			Title:          "structured-sheets:tables list",
+			Transform:      transform,
+		})
 	}
 }
 
