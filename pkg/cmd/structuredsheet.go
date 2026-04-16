@@ -164,7 +164,12 @@ func handleStructuredSheetsCreate(ctx context.Context, cmd *cli.Command) error {
 	format := cmd.Root().String("format")
 	explicitFormat := cmd.Root().IsSet("format")
 	transform := cmd.Root().String("transform")
-	return ShowJSON(os.Stdout, os.Stderr, "structured-sheets create", obj, format, explicitFormat, transform)
+	return ShowJSON(obj, ShowJSONOpts{
+		ExplicitFormat: explicitFormat,
+		Format:         format,
+		Title:          "structured-sheets create",
+		Transform:      transform,
+	})
 }
 
 func handleStructuredSheetsRetrieve(ctx context.Context, cmd *cli.Command) error {
@@ -200,7 +205,12 @@ func handleStructuredSheetsRetrieve(ctx context.Context, cmd *cli.Command) error
 	format := cmd.Root().String("format")
 	explicitFormat := cmd.Root().IsSet("format")
 	transform := cmd.Root().String("transform")
-	return ShowJSON(os.Stdout, os.Stderr, "structured-sheets retrieve", obj, format, explicitFormat, transform)
+	return ShowJSON(obj, ShowJSONOpts{
+		ExplicitFormat: explicitFormat,
+		Format:         format,
+		Title:          "structured-sheets retrieve",
+		Transform:      transform,
+	})
 }
 
 func handleStructuredSheetsList(ctx context.Context, cmd *cli.Command) error {
@@ -235,14 +245,24 @@ func handleStructuredSheetsList(ctx context.Context, cmd *cli.Command) error {
 			return err
 		}
 		obj := gjson.ParseBytes(res)
-		return ShowJSON(os.Stdout, os.Stderr, "structured-sheets list", obj, format, explicitFormat, transform)
+		return ShowJSON(obj, ShowJSONOpts{
+			ExplicitFormat: explicitFormat,
+			Format:         format,
+			Title:          "structured-sheets list",
+			Transform:      transform,
+		})
 	} else {
 		iter := client.StructuredSheets.ListAutoPaging(ctx, params, options...)
 		maxItems := int64(-1)
 		if cmd.IsSet("max-items") {
 			maxItems = cmd.Value("max-items").(int64)
 		}
-		return ShowJSONIterator(os.Stdout, os.Stderr, "structured-sheets list", iter, format, explicitFormat, transform, maxItems)
+		return ShowJSONIterator(iter, maxItems, ShowJSONOpts{
+			ExplicitFormat: explicitFormat,
+			Format:         format,
+			Title:          "structured-sheets list",
+			Transform:      transform,
+		})
 	}
 }
 
@@ -279,7 +299,12 @@ func handleStructuredSheetsDelete(ctx context.Context, cmd *cli.Command) error {
 	format := cmd.Root().String("format")
 	explicitFormat := cmd.Root().IsSet("format")
 	transform := cmd.Root().String("transform")
-	return ShowJSON(os.Stdout, os.Stderr, "structured-sheets delete", obj, format, explicitFormat, transform)
+	return ShowJSON(obj, ShowJSONOpts{
+		ExplicitFormat: explicitFormat,
+		Format:         format,
+		Title:          "structured-sheets delete",
+		Transform:      transform,
+	})
 }
 
 func handleStructuredSheetsCancel(ctx context.Context, cmd *cli.Command) error {
@@ -315,7 +340,12 @@ func handleStructuredSheetsCancel(ctx context.Context, cmd *cli.Command) error {
 	format := cmd.Root().String("format")
 	explicitFormat := cmd.Root().IsSet("format")
 	transform := cmd.Root().String("transform")
-	return ShowJSON(os.Stdout, os.Stderr, "structured-sheets cancel", obj, format, explicitFormat, transform)
+	return ShowJSON(obj, ShowJSONOpts{
+		ExplicitFormat: explicitFormat,
+		Format:         format,
+		Title:          "structured-sheets cancel",
+		Transform:      transform,
+	})
 }
 
 func handleStructuredSheetsDownload(ctx context.Context, cmd *cli.Command) error {
