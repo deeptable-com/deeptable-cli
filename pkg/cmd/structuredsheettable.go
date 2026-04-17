@@ -141,6 +141,7 @@ func handleStructuredSheetsTablesRetrieve(ctx context.Context, cmd *cli.Command)
 	return ShowJSON(obj, ShowJSONOpts{
 		ExplicitFormat: explicitFormat,
 		Format:         format,
+		RawOutput:      cmd.Root().Bool("raw-output"),
 		Title:          "structured-sheets:tables retrieve",
 		Transform:      transform,
 	})
@@ -189,6 +190,7 @@ func handleStructuredSheetsTablesList(ctx context.Context, cmd *cli.Command) err
 		return ShowJSON(obj, ShowJSONOpts{
 			ExplicitFormat: explicitFormat,
 			Format:         format,
+			RawOutput:      cmd.Root().Bool("raw-output"),
 			Title:          "structured-sheets:tables list",
 			Transform:      transform,
 		})
@@ -206,6 +208,7 @@ func handleStructuredSheetsTablesList(ctx context.Context, cmd *cli.Command) err
 		return ShowJSONIterator(iter, maxItems, ShowJSONOpts{
 			ExplicitFormat: explicitFormat,
 			Format:         format,
+			RawOutput:      cmd.Root().Bool("raw-output"),
 			Title:          "structured-sheets:tables list",
 			Transform:      transform,
 		})
