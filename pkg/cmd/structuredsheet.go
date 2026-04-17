@@ -167,6 +167,7 @@ func handleStructuredSheetsCreate(ctx context.Context, cmd *cli.Command) error {
 	return ShowJSON(obj, ShowJSONOpts{
 		ExplicitFormat: explicitFormat,
 		Format:         format,
+		RawOutput:      cmd.Root().Bool("raw-output"),
 		Title:          "structured-sheets create",
 		Transform:      transform,
 	})
@@ -208,6 +209,7 @@ func handleStructuredSheetsRetrieve(ctx context.Context, cmd *cli.Command) error
 	return ShowJSON(obj, ShowJSONOpts{
 		ExplicitFormat: explicitFormat,
 		Format:         format,
+		RawOutput:      cmd.Root().Bool("raw-output"),
 		Title:          "structured-sheets retrieve",
 		Transform:      transform,
 	})
@@ -248,6 +250,7 @@ func handleStructuredSheetsList(ctx context.Context, cmd *cli.Command) error {
 		return ShowJSON(obj, ShowJSONOpts{
 			ExplicitFormat: explicitFormat,
 			Format:         format,
+			RawOutput:      cmd.Root().Bool("raw-output"),
 			Title:          "structured-sheets list",
 			Transform:      transform,
 		})
@@ -260,6 +263,7 @@ func handleStructuredSheetsList(ctx context.Context, cmd *cli.Command) error {
 		return ShowJSONIterator(iter, maxItems, ShowJSONOpts{
 			ExplicitFormat: explicitFormat,
 			Format:         format,
+			RawOutput:      cmd.Root().Bool("raw-output"),
 			Title:          "structured-sheets list",
 			Transform:      transform,
 		})
@@ -302,6 +306,7 @@ func handleStructuredSheetsDelete(ctx context.Context, cmd *cli.Command) error {
 	return ShowJSON(obj, ShowJSONOpts{
 		ExplicitFormat: explicitFormat,
 		Format:         format,
+		RawOutput:      cmd.Root().Bool("raw-output"),
 		Title:          "structured-sheets delete",
 		Transform:      transform,
 	})
@@ -343,6 +348,7 @@ func handleStructuredSheetsCancel(ctx context.Context, cmd *cli.Command) error {
 	return ShowJSON(obj, ShowJSONOpts{
 		ExplicitFormat: explicitFormat,
 		Format:         format,
+		RawOutput:      cmd.Root().Bool("raw-output"),
 		Title:          "structured-sheets cancel",
 		Transform:      transform,
 	})
