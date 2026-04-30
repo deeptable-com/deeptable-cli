@@ -45,7 +45,7 @@ var structuredSheetsTablesList = cli.Command{
 			Usage:    "The unique identifier of the structured sheet conversion.",
 			Required: true,
 		},
-		&requestflag.Flag[any]{
+		&requestflag.Flag[*string]{
 			Name:      "after",
 			Usage:     "A cursor for pagination. Use the `last_id` from a previous response to fetch the next page of results.",
 			QueryPath: "after",
