@@ -42,9 +42,10 @@ var structuredSheetsRetrieve = cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:     "structured-sheet-id",
-			Usage:    "The unique identifier of the structured sheet conversion.",
-			Required: true,
+			Name:      "structured-sheet-id",
+			Usage:     "The unique identifier of the structured sheet conversion.",
+			Required:  true,
+			PathParam: "structured_sheet_id",
 		},
 	},
 	Action:          handleStructuredSheetsRetrieve,
@@ -82,9 +83,10 @@ var structuredSheetsDelete = cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:     "structured-sheet-id",
-			Usage:    "The unique identifier of the structured sheet conversion.",
-			Required: true,
+			Name:      "structured-sheet-id",
+			Usage:     "The unique identifier of the structured sheet conversion.",
+			Required:  true,
+			PathParam: "structured_sheet_id",
 		},
 	},
 	Action:          handleStructuredSheetsDelete,
@@ -97,9 +99,10 @@ var structuredSheetsCancel = cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:     "structured-sheet-id",
-			Usage:    "The unique identifier of the structured sheet conversion.",
-			Required: true,
+			Name:      "structured-sheet-id",
+			Usage:     "The unique identifier of the structured sheet conversion.",
+			Required:  true,
+			PathParam: "structured_sheet_id",
 		},
 	},
 	Action:          handleStructuredSheetsCancel,
@@ -112,9 +115,10 @@ var structuredSheetsDownload = cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:     "structured-sheet-id",
-			Usage:    "The unique identifier of the structured sheet conversion.",
-			Required: true,
+			Name:      "structured-sheet-id",
+			Usage:     "The unique identifier of the structured sheet conversion.",
+			Required:  true,
+			PathParam: "structured_sheet_id",
 		},
 		&requestflag.Flag[string]{
 			Name:      "format",
@@ -140,8 +144,6 @@ func handleStructuredSheetsCreate(ctx context.Context, cmd *cli.Command) error {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
 
-	params := deeptable.StructuredSheetNewParams{}
-
 	options, err := flagOptions(
 		cmd,
 		apiquery.NestedQueryFormatBrackets,
@@ -152,6 +154,8 @@ func handleStructuredSheetsCreate(ctx context.Context, cmd *cli.Command) error {
 	if err != nil {
 		return err
 	}
+
+	params := deeptable.StructuredSheetNewParams{}
 
 	var res []byte
 	options = append(options, option.WithResponseBodyInto(&res))
@@ -223,8 +227,6 @@ func handleStructuredSheetsList(ctx context.Context, cmd *cli.Command) error {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
 
-	params := deeptable.StructuredSheetListParams{}
-
 	options, err := flagOptions(
 		cmd,
 		apiquery.NestedQueryFormatBrackets,
@@ -235,6 +237,8 @@ func handleStructuredSheetsList(ctx context.Context, cmd *cli.Command) error {
 	if err != nil {
 		return err
 	}
+
+	params := deeptable.StructuredSheetListParams{}
 
 	format := cmd.Root().String("format")
 	explicitFormat := cmd.Root().IsSet("format")
@@ -365,8 +369,6 @@ func handleStructuredSheetsDownload(ctx context.Context, cmd *cli.Command) error
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
 
-	params := deeptable.StructuredSheetDownloadParams{}
-
 	options, err := flagOptions(
 		cmd,
 		apiquery.NestedQueryFormatBrackets,
@@ -377,6 +379,8 @@ func handleStructuredSheetsDownload(ctx context.Context, cmd *cli.Command) error
 	if err != nil {
 		return err
 	}
+
+	params := deeptable.StructuredSheetDownloadParams{}
 
 	response, err := client.StructuredSheets.Download(
 		ctx,

@@ -21,9 +21,10 @@ var filesRetrieve = cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:     "file-id",
-			Usage:    "The unique identifier of the file.",
-			Required: true,
+			Name:      "file-id",
+			Usage:     "The unique identifier of the file.",
+			Required:  true,
+			PathParam: "file_id",
 		},
 	},
 	Action:          handleFilesRetrieve,
@@ -61,9 +62,10 @@ var filesDelete = cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:     "file-id",
-			Usage:    "The unique identifier of the file.",
-			Required: true,
+			Name:      "file-id",
+			Usage:     "The unique identifier of the file.",
+			Required:  true,
+			PathParam: "file_id",
 		},
 	},
 	Action:          handleFilesDelete,
@@ -76,9 +78,10 @@ var filesDownload = cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:     "file-id",
-			Usage:    "The unique identifier of the file.",
-			Required: true,
+			Name:      "file-id",
+			Usage:     "The unique identifier of the file.",
+			Required:  true,
+			PathParam: "file_id",
 		},
 		&requestflag.Flag[string]{
 			Name:    "output",
@@ -157,8 +160,6 @@ func handleFilesList(ctx context.Context, cmd *cli.Command) error {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
 
-	params := deeptable.FileListParams{}
-
 	options, err := flagOptions(
 		cmd,
 		apiquery.NestedQueryFormatBrackets,
@@ -169,6 +170,8 @@ func handleFilesList(ctx context.Context, cmd *cli.Command) error {
 	if err != nil {
 		return err
 	}
+
+	params := deeptable.FileListParams{}
 
 	format := cmd.Root().String("format")
 	explicitFormat := cmd.Root().IsSet("format")
@@ -287,8 +290,6 @@ func handleFilesUpload(ctx context.Context, cmd *cli.Command) error {
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
 
-	params := deeptable.FileUploadParams{}
-
 	options, err := flagOptions(
 		cmd,
 		apiquery.NestedQueryFormatBrackets,
@@ -299,6 +300,8 @@ func handleFilesUpload(ctx context.Context, cmd *cli.Command) error {
 	if err != nil {
 		return err
 	}
+
+	params := deeptable.FileUploadParams{}
 
 	var res []byte
 	options = append(options, option.WithResponseBodyInto(&res))
