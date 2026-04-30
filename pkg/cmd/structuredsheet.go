@@ -56,7 +56,7 @@ var structuredSheetsList = cli.Command{
 	Usage:   "List all structured sheets conversions for the authenticated user. Results are\npaginated using cursor-based pagination.",
 	Suggest: true,
 	Flags: []cli.Flag{
-		&requestflag.Flag[any]{
+		&requestflag.Flag[*string]{
 			Name:      "after",
 			Usage:     "A cursor for pagination. Use the `last_id` from a previous response to fetch the next page of results.",
 			QueryPath: "after",
