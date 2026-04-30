@@ -21,14 +21,16 @@ var structuredSheetsTablesRetrieve = cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:     "structured-sheet-id",
-			Usage:    "The unique identifier of the structured sheet conversion.",
-			Required: true,
+			Name:      "structured-sheet-id",
+			Usage:     "The unique identifier of the structured sheet conversion.",
+			Required:  true,
+			PathParam: "structured_sheet_id",
 		},
 		&requestflag.Flag[string]{
-			Name:     "table-id",
-			Usage:    "The unique identifier of the table.",
-			Required: true,
+			Name:      "table-id",
+			Usage:     "The unique identifier of the table.",
+			Required:  true,
+			PathParam: "table_id",
 		},
 	},
 	Action:          handleStructuredSheetsTablesRetrieve,
@@ -41,9 +43,10 @@ var structuredSheetsTablesList = cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:     "structured-sheet-id",
-			Usage:    "The unique identifier of the structured sheet conversion.",
-			Required: true,
+			Name:      "structured-sheet-id",
+			Usage:     "The unique identifier of the structured sheet conversion.",
+			Required:  true,
+			PathParam: "structured_sheet_id",
 		},
 		&requestflag.Flag[*string]{
 			Name:      "after",
@@ -71,14 +74,16 @@ var structuredSheetsTablesDownload = cli.Command{
 	Suggest: true,
 	Flags: []cli.Flag{
 		&requestflag.Flag[string]{
-			Name:     "structured-sheet-id",
-			Usage:    "The unique identifier of the structured sheet conversion.",
-			Required: true,
+			Name:      "structured-sheet-id",
+			Usage:     "The unique identifier of the structured sheet conversion.",
+			Required:  true,
+			PathParam: "structured_sheet_id",
 		},
 		&requestflag.Flag[string]{
-			Name:     "table-id",
-			Usage:    "The unique identifier of the table.",
-			Required: true,
+			Name:      "table-id",
+			Usage:     "The unique identifier of the table.",
+			Required:  true,
+			PathParam: "table_id",
 		},
 		&requestflag.Flag[string]{
 			Name:      "format",
@@ -107,10 +112,6 @@ func handleStructuredSheetsTablesRetrieve(ctx context.Context, cmd *cli.Command)
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
 
-	params := deeptable.StructuredSheetTableGetParams{
-		StructuredSheetID: cmd.Value("structured-sheet-id").(string),
-	}
-
 	options, err := flagOptions(
 		cmd,
 		apiquery.NestedQueryFormatBrackets,
@@ -120,6 +121,10 @@ func handleStructuredSheetsTablesRetrieve(ctx context.Context, cmd *cli.Command)
 	)
 	if err != nil {
 		return err
+	}
+
+	params := deeptable.StructuredSheetTableGetParams{
+		StructuredSheetID: cmd.Value("structured-sheet-id").(string),
 	}
 
 	var res []byte
@@ -158,8 +163,6 @@ func handleStructuredSheetsTablesList(ctx context.Context, cmd *cli.Command) err
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
 
-	params := deeptable.StructuredSheetTableListParams{}
-
 	options, err := flagOptions(
 		cmd,
 		apiquery.NestedQueryFormatBrackets,
@@ -170,6 +173,8 @@ func handleStructuredSheetsTablesList(ctx context.Context, cmd *cli.Command) err
 	if err != nil {
 		return err
 	}
+
+	params := deeptable.StructuredSheetTableListParams{}
 
 	format := cmd.Root().String("format")
 	explicitFormat := cmd.Root().IsSet("format")
@@ -226,10 +231,6 @@ func handleStructuredSheetsTablesDownload(ctx context.Context, cmd *cli.Command)
 		return fmt.Errorf("Unexpected extra arguments: %v", unusedArgs)
 	}
 
-	params := deeptable.StructuredSheetTableDownloadParams{
-		StructuredSheetID: cmd.Value("structured-sheet-id").(string),
-	}
-
 	options, err := flagOptions(
 		cmd,
 		apiquery.NestedQueryFormatBrackets,
@@ -239,6 +240,10 @@ func handleStructuredSheetsTablesDownload(ctx context.Context, cmd *cli.Command)
 	)
 	if err != nil {
 		return err
+	}
+
+	params := deeptable.StructuredSheetTableDownloadParams{
+		StructuredSheetID: cmd.Value("structured-sheet-id").(string),
 	}
 
 	response, err := client.StructuredSheets.Tables.Download(
