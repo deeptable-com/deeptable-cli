@@ -35,7 +35,7 @@ var filesList = cli.Command{
 	Usage:   "List all files uploaded by the current user.",
 	Suggest: true,
 	Flags: []cli.Flag{
-		&requestflag.Flag[any]{
+		&requestflag.Flag[*string]{
 			Name:      "after",
 			Usage:     "A cursor for pagination. Use the `last_id` from a previous response to fetch the next page.",
 			QueryPath: "after",
