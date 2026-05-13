@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-beta.4 (2026-05-13)
+
+Full Changelog: [v0.1.0-beta.3...v0.1.0-beta.4](https://github.com/deeptable-com/deeptable-cli/compare/v0.1.0-beta.3...v0.1.0-beta.4)
+
+### Chores
+
+* redact api-key headers in debug logs ([3ab4a2e](https://github.com/deeptable-com/deeptable-cli/commit/3ab4a2e51a52b1650a909eed9ba330d5357325ec))
+
 ## 0.1.0-beta.3 (2026-04-30)
 
 Full Changelog: [v0.1.0-beta.2...v0.1.0-beta.3](https://github.com/deeptable-com/deeptable-cli/compare/v0.1.0-beta.2...v0.1.0-beta.3)
