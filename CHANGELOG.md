@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-beta.5 (2026-07-18)
+
+Full Changelog: [v0.1.0-beta.4...v0.1.0-beta.5](https://github.com/deeptable-com/deeptable-cli/compare/v0.1.0-beta.4...v0.1.0-beta.5)
+
+### Features
+
+* **stlc:** configurable CI runner and private-production-repo support in workflow templates ([ad31caf](https://github.com/deeptable-com/deeptable-cli/commit/ad31caf91f2dbb12f0eb0a3f37e1ca079b13f673))
+
 ## 0.1.0-beta.4 (2026-05-13)
 
 Full Changelog: [v0.1.0-beta.3...v0.1.0-beta.4](https://github.com/deeptable-com/deeptable-cli/compare/v0.1.0-beta.3...v0.1.0-beta.4)
