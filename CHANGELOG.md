@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-beta.6 (2026-09-15)
+
+Full Changelog: [v0.1.0-beta.5...v0.1.0-beta.6](https://github.com/deeptable-com/deeptable-cli/compare/v0.1.0-beta.5...v0.1.0-beta.6)
+
+### Chores
+
+* **internal:** codegen related update ([59f0559](https://github.com/deeptable-com/deeptable-cli/commit/59f0559a32c907043a93893d5942fab167f2428f))
+
 ## 0.1.0-beta.5 (2026-07-18)
 
 Full Changelog: [v0.1.0-beta.4...v0.1.0-beta.5](https://github.com/deeptable-com/deeptable-cli/compare/v0.1.0-beta.4...v0.1.0-beta.5)
